@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FileShare</string>
+    <string name="login_text">login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="not_registered_yet_click_here">Not registered yet? Click Here</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="name">Name</string>
+    <string name="register_text">Register</string>
+    <string name="add_course">Add course</string>
+    <string name="teacher">teacher</string>
+    <string name="student">student</string>
+</resources>

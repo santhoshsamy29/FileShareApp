@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/student_courses_layout_item"
+    android:background="@color/black_background">
+
+    <TextView
+        android:id="@+id/course_course_name_textview_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="20dp"
+        android:textColor="#FFFFFF"
+        android:gravity="left"
+        android:text="Data structures"
+        android:textStyle="bold"
+        android:fontFamily="@font/kreon_light" />
+
+
+    <TextView
+        android:id="@+id/course_teacher_name_textview_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/course_course_name_textview_item"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:paddingStart="20dp"
+        android:paddingBottom="20dp"
+        android:gravity="left"
+        android:text="Leela velusamy"
+        android:textColor="@color/neutral_font_color"
+        android:fontFamily="@font/kreon_light"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/enroll_button"
+        android:background="@drawable/add_course_button"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="20dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@+id/course_teacher_name_textview_item"
+        android:background="@color/divider_line_gray"/>
+
+</RelativeLayout>
