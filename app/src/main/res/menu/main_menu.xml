@@ -11,4 +11,12 @@
         android:title="@string/add_course"
         app:showAsAction="ifRoom" />
 
+
+    <item
+        android:id="@+id/menu_notifications"
+        android:icon="@drawable/add_button"
+        android:orderInCategory="1"
+        android:title="@string/add_course"
+        app:showAsAction="ifRoom" />
+
 </menu>

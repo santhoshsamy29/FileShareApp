@@ -40,6 +40,7 @@ public class TeacherDashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_dashboard);
 
+
         initialize();
         pref = getApplicationContext().getSharedPreferences(Constants.LOGIN_PREF, 0);
         edit = pref.edit();

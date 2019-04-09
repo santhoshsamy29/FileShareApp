@@ -1,5 +1,6 @@
 package com.example.fileshare;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.example.fileshare.response.StandardResponse;
 import com.example.fileshare.retrofit.ApiClient;
 import com.example.fileshare.retrofit.ApiInterface;
+import com.example.fileshare.utils.Constants;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,7 +81,10 @@ public class StudentRegisterActivity extends AppCompatActivity {
 
     private void register(String name, String email, String password) {
 
-        Call<StandardResponse> call = apiInterface.studentRegister(name, email, password);
+        SharedPreferences preferences = getApplicationContext().getSharedPreferences(Constants.LOGIN_PREF,0);
+        String token = preferences.getString(Constants.TOKEN,"");
+
+        Call<StandardResponse> call = apiInterface.studentRegister(name, email, password, token);
         call.enqueue(new Callback<StandardResponse>() {
             @Override
             public void onResponse(Call<StandardResponse> call, Response<StandardResponse> response) {

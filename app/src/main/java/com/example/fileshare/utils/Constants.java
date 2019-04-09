@@ -8,7 +8,9 @@ public class Constants {
     public static String STUDENT_LOGGED_IN  = "student-logged-in";
     public static String TEACHER_LOGGED_IN  = "teacher-logged-in";
     public static String COURSE_ID = "course_id";
+    public static String TOKEN = "token";
 
 
-    public static String BASE_STORAGE_URL = "http://10.2.76.99:8000/storage/files/";
+
+    public static String BASE_STORAGE_URL = "http://192.168.43.230:8000/storage/files/";
 }

@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.fileshare.R;
+import com.example.fileshare.response.Enrollment;
 import com.example.fileshare.response.EnrollmentResponse;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import retrofit2.Callback;
 public class StudentDashboardAdapter extends RecyclerView.Adapter<StudentDashboardAdapter.ViewHolder> {
 
     private Context context;
-    private ArrayList<ArrayList<String>> map = new ArrayList<>();
+    private ArrayList<Enrollment> map = new ArrayList<>();
 
     private OnClickListener onClickListener;
 
@@ -28,7 +29,7 @@ public class StudentDashboardAdapter extends RecyclerView.Adapter<StudentDashboa
     }
 
 
-    public StudentDashboardAdapter(Context context, ArrayList<ArrayList<String>> map) {
+    public StudentDashboardAdapter(Context context, ArrayList<Enrollment> map) {
 
         this.context = context;
         this.map = map;
@@ -45,8 +46,8 @@ public class StudentDashboardAdapter extends RecyclerView.Adapter<StudentDashboa
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
-        viewHolder.courseName.setText(map.get(i).get(0));
-        viewHolder.teacherName.setText(map.get(i).get(1));
+        viewHolder.courseName.setText(map.get(i).getCourseName());
+        viewHolder.teacherName.setText(map.get(i).getTeacherName());
 
         viewHolder.layout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.example.fileshare.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +30,7 @@ import retrofit2.Response;
 public class StudentDashboardActivity extends AppCompatActivity {
 
     RecyclerView studentCoursesRecyclerView;
-    ArrayList<ArrayList<String>> list = new ArrayList<>();
+    ArrayList<Enrollment> list = new ArrayList<>();
 
   //  ArrayList<String> list = new ArrayList<>();
 
@@ -42,6 +44,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_dashboard);
+
 
         initialize();
         pref = getApplicationContext().getSharedPreferences(Constants.LOGIN_PREF, 0);
@@ -80,17 +83,14 @@ public class StudentDashboardActivity extends AppCompatActivity {
                 if (response.body() != null) {
                     List<Enrollment> enrollments = response.body().getEnrollments();
 
+
+
                     list.clear();
 
                     for(int i=0; i<enrollments.size() ; i++){
 
-
-                        ArrayList<String> temp = new ArrayList<>();
-
-                        temp.add(enrollments.get(i).getCourseName());
-                        temp.add(enrollments.get(i).getTeacherName());
-
-                        list.add(temp);
+                        Log.e("SAN", "coruse  : " + enrollments.get(i).getCourseName() + "   "  + enrollments.get(i).getTeacherName());
+                        list.add(enrollments.get(i));
                         //list.add(enrollments.get(i).getCourseName());
 
                     }

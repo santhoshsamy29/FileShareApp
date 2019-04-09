@@ -49,7 +49,8 @@ public interface ApiInterface {
     Call<StandardResponse> studentRegister(
             @Field("name") String name,
             @Field("email") String email,
-            @Field("password") String password
+            @Field("password") String password,
+            @Field("token") String token
     );
 
     @FormUrlEncoded
