@@ -3,6 +3,7 @@ package com.example.fileshare.retrofit;
 import com.example.fileshare.response.CourseResponse;
 import com.example.fileshare.response.EnrollmentResponse;
 import com.example.fileshare.response.FileResponse;
+import com.example.fileshare.response.NotificationResponse;
 import com.example.fileshare.response.StandardResponse;
 import com.example.fileshare.response.TeacherCourseResponse;
 
@@ -97,5 +98,18 @@ public interface ApiInterface {
     @Streaming
     @GET
     Call<ResponseBody> downloadFile(@Url String urlString);
+
+    @FormUrlEncoded
+    @POST("/api/notification/fetch")
+    Call<NotificationResponse> getNotifications(
+            @Field("course_id") Integer courseId
+    );
+
+    @FormUrlEncoded
+    @POST("/api/notification/add")
+    Call<StandardResponse> sendNotifications(
+            @Field("course_id") Integer courseId,
+            @Field("notification_text") String notificationText
+    );
 
 }

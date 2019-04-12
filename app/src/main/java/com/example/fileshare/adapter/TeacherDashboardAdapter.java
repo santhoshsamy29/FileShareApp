@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -46,7 +47,15 @@ public class TeacherDashboardAdapter extends RecyclerView.Adapter<TeacherDashboa
         viewHolder.courseName.setText(list.get(i).getCourseName());
         viewHolder.className.setText(String.format("%s - %s, %s Year", list.get(i).getDepartment(), list.get(i).getSection(), list.get(i).getCourseYear()));
 
-        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+        viewHolder.openNotifications.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickListener.notificationsClicked(v, list.get(i).getId());
+            }
+        });
+
+
+        viewHolder.openFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onClickListener.itemClicked(v, list.get(i).getId());
@@ -65,6 +74,7 @@ public class TeacherDashboardAdapter extends RecyclerView.Adapter<TeacherDashboa
 
         TextView  className, courseName;
         RelativeLayout layout;
+        ImageView openNotifications, openFiles;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,11 +83,14 @@ public class TeacherDashboardAdapter extends RecyclerView.Adapter<TeacherDashboa
             layout = itemView.findViewById(R.id.student_courses_layout_item);
             className = itemView.findViewById(R.id.teacher_name_textview_item);
             courseName = itemView.findViewById(R.id.course_name_textview_item);
+            openNotifications = itemView.findViewById(R.id.open_notification_button_item);
+            openFiles = itemView.findViewById(R.id.open_files_button_item);
         }
     }
 
 
     public interface OnClickListener{
+        public void notificationsClicked(View view, int courseId);
         public void itemClicked(View view, int courseId);
     }
 }

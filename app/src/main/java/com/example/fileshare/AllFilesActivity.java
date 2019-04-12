@@ -1,5 +1,6 @@
 package com.example.fileshare;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -8,17 +9,18 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.fileshare.adapter.StudentFileListAdapter;
-import com.example.fileshare.adapter.TeacherFileListAdapter;
+import com.example.fileshare.response.File;
 import com.example.fileshare.response.FileResponse;
 import com.example.fileshare.retrofit.ApiClient;
 import com.example.fileshare.retrofit.ApiInterface;
 import com.example.fileshare.utils.Constants;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,10 +33,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class StudentFileListActivity extends AppCompatActivity {
+public class AllFilesActivity extends AppCompatActivity {
 
     int courseId = 1;
-    ArrayList<com.example.fileshare.response.File> list = new ArrayList<>();
+    ArrayList<File> list = new ArrayList<>();
     RecyclerView studentFileListRecyclerview;
     StudentFileListAdapter studentFileListAdapter;
 
@@ -44,7 +46,8 @@ public class StudentFileListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_file_list);
+        setContentView(R.layout.activity_all_files);
+
 
         initialize();
         courseId = getIntent().getIntExtra(Constants.COURSE_ID,1);
@@ -57,7 +60,6 @@ public class StudentFileListActivity extends AppCompatActivity {
                 downloadFile(fileName);
             }
         });
-        
 
     }
 
@@ -66,7 +68,7 @@ public class StudentFileListActivity extends AppCompatActivity {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         studentFileListAdapter = new StudentFileListAdapter(this, list);
-        studentFileListRecyclerview = findViewById(R.id.student_file_list_recyclerview);
+        studentFileListRecyclerview = findViewById(R.id.all_files_list_recyclerview);
         studentFileListRecyclerview.setLayoutManager(new LinearLayoutManager(this));
         studentFileListRecyclerview.setAdapter(studentFileListAdapter);
     }
@@ -82,7 +84,7 @@ public class StudentFileListActivity extends AppCompatActivity {
                 Log.e("SAN","inside call");
 
                 list.clear();
-                List<com.example.fileshare.response.File> temp = response.body().getFiles();
+                List<File> temp = response.body().getFiles();
                 Log.e("SAN", list.size() + "");
 
                 for(int i=0; i<temp.size() ; i++){
@@ -101,6 +103,7 @@ public class StudentFileListActivity extends AppCompatActivity {
         });
 
     }
+
 
 
     private void downloadFile(String fileName) {
@@ -187,7 +190,7 @@ public class StudentFileListActivity extends AppCompatActivity {
     private void saveToDisk(ResponseBody body, String filename) {
         try {
 
-            File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename);
+            java.io.File destinationFile = new java.io.File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename);
 
             InputStream inputStream = null;
             OutputStream outputStream = null;
@@ -231,4 +234,6 @@ public class StudentFileListActivity extends AppCompatActivity {
             return;
         }
     }
+
+
 }

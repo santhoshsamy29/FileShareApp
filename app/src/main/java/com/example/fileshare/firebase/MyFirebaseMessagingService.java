@@ -27,6 +27,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Log.d("msg", "onMessageReceived: " + message.getNotification().toString());
         sendMyNotification(message.getNotification().getBody());
+
     }
 
 

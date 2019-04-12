@@ -33,11 +33,36 @@
         android:textColor="@color/neutral_font_color"
         android:fontFamily="@font/kreon_light"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearlayout"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_below="@+id/teacher_name_textview_item">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/open_notification_button_item"
+            android:layout_weight="1"
+            android:src="@drawable/ic_message" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/open_files_button_item"
+            android:src="@drawable/ic_folder"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_below="@+id/teacher_name_textview_item"
+        android:layout_below="@+id/linearlayout"
         android:background="@color/divider_line_gray"/>
 
 </RelativeLayout>

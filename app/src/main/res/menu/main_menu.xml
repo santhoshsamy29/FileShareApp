@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".StudentDashboardActivity">
+    tools:context=".MainActivity">
 
     <item
-        android:id="@+id/menu_enroll"
-        android:icon="@drawable/add_button"
+        android:id="@+id/menu_add_file"
+        android:icon="@drawable/ic_folder"
         android:orderInCategory="1"
-        android:title="@string/add_course"
-        app:showAsAction="ifRoom" />
-
-
-    <item
-        android:id="@+id/menu_notifications"
-        android:icon="@drawable/add_button"
-        android:orderInCategory="1"
-        android:title="@string/add_course"
+        android:title="File"
         app:showAsAction="ifRoom" />
 
 </menu>

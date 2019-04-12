@@ -10,7 +10,7 @@ public class File {
     @SerializedName("name")
     private String name;
 
-    @SerializedName("sise")
+    @SerializedName("size")
     private String size;
 
     @SerializedName("course_id")

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/black_background"
+    android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/student_notifications_textview_item"
+        android:fontFamily="@font/kreon_light"
+        android:textSize="20sp"
+        android:textColor="@color/neutral_font_color"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="5dp"
+        android:text="hello this is a text from me"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/student_notifications_time_textview_item"
+        android:fontFamily="@font/kreon_light"
+        android:textSize="12sp"
+        android:textColor="@color/neutral_font_color"
+        android:layout_alignParentRight="true"
+        android:text="hello this is a text from me"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/student_notifications_textview_item"
+        android:layout_marginTop="20dp"
+        android:background="@color/divider_line_gray"/>
+
+</RelativeLayout>

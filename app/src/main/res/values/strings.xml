@@ -10,4 +10,8 @@
     <string name="add_course">Add course</string>
     <string name="teacher">teacher</string>
     <string name="student">student</string>
+    <string name="send_notificaton">Send Notificaton</string>
+    <string name="send">Send</string>
+    <string name="cancel">Cancel</string>
+    <string name="notification_text">Notification Text</string>
 </resources>

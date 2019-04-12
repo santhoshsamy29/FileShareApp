@@ -14,28 +14,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AllFilesActivity"></activity>
+        <activity android:name=".StudentNotificationsActivity" />
         <activity
-            android:parentActivityName=".StudentDashboardActivity"
             android:name=".CoursesActivity"
-            android:label="Courses"/>
-        <activity android:name=".TeacherFileListActivity"
-            android:label="Files"/>
+            android:label="Courses"
+            android:parentActivityName=".StudentDashboardActivity" />
         <activity
-            android:parentActivityName=".StudentDashboardActivity"
+            android:name=".TeacherFileListActivity"
+            android:label="Files" />
+        <activity
             android:name=".StudentFileListActivity"
-            android:label="Files"/>
-        <activity android:name=".TeacherDashboardActivity"
-            android:label="Faculty Dashboard"/>
-        <activity android:name=".StudentDashboardActivity"
-            android:label="Student Dashboard"/>
-        <activity android:name=".TeacherRegisterActivity"
-            android:label="Register"/>
-        <activity android:name=".StudentRegisterActivity"
-            android:label="Register"/>
-        <activity android:name=".TeacherLoginActivity"
-            android:label="Login"/>
-        <activity android:name=".StudentLoginActivity"
-            android:label="Login"/>
+            android:label="Files"
+            android:parentActivityName=".StudentDashboardActivity" />
+        <activity
+            android:name=".TeacherDashboardActivity"
+            android:label="Faculty Dashboard" />
+        <activity
+            android:name=".StudentDashboardActivity"
+            android:label="Student Dashboard" />
+        <activity
+            android:name=".TeacherRegisterActivity"
+            android:label="Register" />
+        <activity
+            android:name=".StudentRegisterActivity"
+            android:label="Register" />
+        <activity
+            android:name=".TeacherLoginActivity"
+            android:label="Login" />
+        <activity
+            android:name=".StudentLoginActivity"
+            android:label="Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,13 +52,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service android:name=".firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
     </application>
-
-
 
 </manifest>

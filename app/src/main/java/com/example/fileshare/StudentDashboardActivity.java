@@ -21,7 +21,6 @@ import com.example.fileshare.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,10 +52,21 @@ public class StudentDashboardActivity extends AppCompatActivity {
         //fetchCourses();
 
         studentDashboardAdapter.setOnClickListener(new StudentDashboardAdapter.OnClickListener() {
+
+            @Override
+            public void notificationsClicked(View view, int position) {
+
+                Intent intent = new Intent(StudentDashboardActivity.this, StudentNotificationsActivity.class);
+                intent.putExtra(Constants.COURSE_ID,position);
+                startActivity(intent);
+
+            }
+
             @Override
             public void itemClicked(View view, int position) {
+                Log.e("SAN", "filess clickedsdsds");
                 Intent intent = new Intent(StudentDashboardActivity.this, StudentFileListActivity.class);
-                intent.putExtra(Constants.COURSE_ID,position+1);
+                intent.putExtra(Constants.COURSE_ID,position);
                 startActivity(intent);
             }
         });
@@ -112,7 +122,7 @@ public class StudentDashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.student_menu, menu);
         return true;
     }
 
